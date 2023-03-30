@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marqueblanche/screens/home_screen.dart';
 import 'package:marqueblanche/screens/inscription_screen.dart';
 import 'package:marqueblanche/screens/profile_screen.dart';
 import 'package:marqueblanche/screens/tab_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           headline3: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+          headline4: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
           bodyText1: TextStyle(fontSize: 16),
           bodyText2: TextStyle(fontSize: 10),
           button: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -34,7 +36,10 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: ProfileScreen(),
+      home: HomeScreen(),
     );
   }
 }
+
+
+
