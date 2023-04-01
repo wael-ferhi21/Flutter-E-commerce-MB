@@ -9,6 +9,7 @@ class InscriptionScreen extends StatefulWidget {
 }
 
 class _InscriptionScreenState extends State<InscriptionScreen> {
+  late final TextEditingController mycontroller;
   Widget _entryField(String title, Icon icon1, {bool isPassword = false}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -16,6 +17,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           TextField(
+            controller: mycontroller,
             obscureText: isPassword,
             decoration: InputDecoration(
                 prefixIcon: icon1,
@@ -45,7 +47,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
               ])),
       child: Text(
         'INSCRIVEZ-VOUS',
-        style: TextStyle(fontSize: 16, color: Colors.white),
+        style: Theme.of(context).textTheme.headline5,
       ),
     );
   }

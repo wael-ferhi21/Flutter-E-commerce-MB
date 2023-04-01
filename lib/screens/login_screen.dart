@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ])),
       child: Text(
         'SE CONNECTER',
-        style: TextStyle(fontSize: 16, color: Colors.white),
+        style: Theme.of(context).textTheme.headline5,
       ),
     );
   }

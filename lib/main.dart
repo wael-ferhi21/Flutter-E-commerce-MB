@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marqueblanche/screens/home_screen.dart';
 import 'package:marqueblanche/screens/inscription_screen.dart';
 import 'package:marqueblanche/screens/profile_screen.dart';
+import 'package:marqueblanche/screens/shop_cart_screen.dart';
 import 'package:marqueblanche/screens/tab_screen.dart';
 import 'screens/login_screen.dart';
 
@@ -29,6 +30,14 @@ class MyApp extends StatelessWidget {
           ),
           headline3: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
           headline4: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          headline5: TextStyle(
+      fontFamily: 'Poppins',
+      fontSize: 14,
+      color: const Color(0xffffffff),
+      letterSpacing: 1.0000000305175782,
+      fontWeight: FontWeight.w700,
+      height: 1.7857142857142858,
+    ),
           bodyText1: TextStyle(fontSize: 16),
           bodyText2: TextStyle(fontSize: 10),
           button: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -36,10 +45,7 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: ShopCartScreen(),
     );
   }
 }
-
-
-
