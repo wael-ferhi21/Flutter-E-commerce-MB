@@ -106,6 +106,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
             ),
           ],
         ),
+        SizedBox(height: 10.0, width: 10.0),
         TextZone(
           title: "E-MAIL",
           icon1: const Icon(
@@ -113,6 +114,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
           ),
           isPassword: false,
         ),
+        SizedBox(height: 10.0, width: 10.0),
         TextZone(
           isPassword: true,
           title: "MOT DE PASSE",
@@ -160,8 +162,8 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
                         clr1: Theme.of(context).primaryColor,
                         clr2: Theme.of(context).accentColor,
                         clr3: Theme.of(context).primaryColor,
-                        w: MediaQuery.of(context).size.width,
-                        h: MediaQuery.of(context).size.height,
+                        w: 20,
+                        h: 300,
                       ),
                       SizedBox(height: height * .14),
                       _loginAccountLabel(),

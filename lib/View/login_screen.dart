@@ -63,25 +63,38 @@ class _LoginScreenState extends State<LoginScreen> {
             MaterialPageRoute(builder: (context) => InscriptionScreen()));
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 20),
-        padding: EdgeInsets.all(15),
+        margin: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.all(10),
         alignment: Alignment.bottomCenter,
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Vous n\'avez pas un compte ?',
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              'Inscrivez-vous',
-              style: TextStyle(
-                  color: Theme.of(context).primaryColor,
+            RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                text: 'Vous n\'avez pas un compte ?',
+                style: const TextStyle(
                   fontSize: 13,
-                  fontWeight: FontWeight.w600),
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Inscrivez-vous',
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const TextSpan(
+                    text: ' ',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -144,6 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           isPassword: false,
         ),
+        SizedBox(height: 10.0, width: 10.0),
         TextZone(
             title: "MOT DE PASSE",
             icon1: Icon(
@@ -154,13 +168,12 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _socialMediaButton(Buttons button1, String text1) {
+  Widget _socialMediaButton(Buttons button1) {
     return SizedBox(
       width: 280,
       child: SignInButton(
         elevation: 5,
         button1,
-        text: text1,
         onPressed: () {},
       ),
     );
@@ -198,8 +211,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       clr1: Theme.of(context).primaryColor,
                       clr2: Theme.of(context).accentColor,
                       clr3: Theme.of(context).primaryColor,
-                      w: MediaQuery.of(context).size.width,
-                      h: MediaQuery.of(context).size.height,
+                      w: 20,
+                      h: 300,
                     ),
                     SizedBox(height: 15),
                     Container(
@@ -212,11 +225,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     _divider(),
                     _socialMediaButton(
                       Buttons.Facebook,
-                      "Se connecter avec Facebo",
                     ),
                     SizedBox(height: 10),
                     _socialMediaButton(
-                        Buttons.Google, "Se connecter avec Google"),
+                      Buttons.Google,
+                    ),
                     SizedBox(height: height * .055),
                     _createAccountLabel(),
                   ],

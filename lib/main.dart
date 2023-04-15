@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xff4d6aee),
         accentColor: const Color(0xfffafafa),
-        
         fontFamily: 'Poppins',
         textTheme: TextTheme(
           headline1: TextStyle(
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
       ),
       title: 'E commerce',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: LoginScreen(),
       routes: {
         'panier': (context) {
           return ShopCartScreen();

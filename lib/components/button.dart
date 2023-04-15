@@ -25,7 +25,7 @@ class Button extends StatelessWidget {
         foregroundColor: MaterialStateProperty.all<Color>(clr2),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(10.0),
             side: BorderSide(color: clr3),
           ),
         ),
