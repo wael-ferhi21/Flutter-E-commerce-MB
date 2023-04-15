@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:marqueblanche/components/appbar.dart';
 import 'package:marqueblanche/components/coupon_field.dart';
 import '../components/cart_shop_item.dart';
 
@@ -14,19 +15,7 @@ class _ShopCartScreenState extends State<ShopCartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            LineAwesomeIcons.angle_left,
-          ),
-        ),
-        title: Text(
-          "Panier",
-          style: Theme.of(context).textTheme.headline1,
-        ),
-      ),
+      appBar: CustomAppBar(text: "Panier", actions: []),
       body: SingleChildScrollView(
         child: Column(children: [
           ShopCartItem(),

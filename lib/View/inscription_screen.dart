@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:marqueblanche/screens/login_screen.dart';
+import 'package:marqueblanche/View/login_screen.dart';
+import 'package:marqueblanche/components/button.dart';
+import 'package:marqueblanche/components/textzone.dart';
+import '../components/logo.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class InscriptionScreen extends StatefulWidget {
+  void inscription(String nom, String prenom, String email, String pass) async {
+    final response = await http.get("");
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      print(data);
+    }
+  }
+
   const InscriptionScreen({super.key});
 
   @override
@@ -9,58 +22,17 @@ class InscriptionScreen extends StatefulWidget {
 }
 
 class _InscriptionScreenState extends State<InscriptionScreen> {
-  late final TextEditingController mycontroller;
-  Widget _entryField(String title, Icon icon1, {bool isPassword = false}) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          TextField(
-            controller: mycontroller,
-            obscureText: isPassword,
-            decoration: InputDecoration(
-                prefixIcon: icon1,
-                hintText: title,
-                border: InputBorder.none,
-                fillColor: Color(0xffeeeeee),
-                filled: true),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _submitButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 10),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color.fromARGB(255, 46, 66, 199),
-                Theme.of(context).primaryColor,
-              ])),
-      child: Text(
-        'INSCRIVEZ-VOUS',
-        style: Theme.of(context).textTheme.headline5,
-      ),
-    );
-  }
+  //final TextEditingController mycontroller ;
 
   Widget _loginAccountLabel() {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()));
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 20),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.all(10),
         alignment: Alignment.bottomCenter,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +41,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
               textAlign: TextAlign.center,
               text: TextSpan(
                 text: 'Vous avez déjà un compte\n',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -83,7 +55,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  TextSpan(
+                  const TextSpan(
                     text: ' ',
                     style: TextStyle(
                       fontSize: 20,
@@ -95,37 +67,6 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _logo() {
-    return Stack(
-      alignment: AlignmentDirectional.center,
-      children: <Widget>[
-        Column(
-          children: [
-            Container(
-              height: 80,
-              width: 80,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-            ),
-          ],
-        ),
-        Icon(
-          Icons.shopping_cart_outlined,
-          color: Colors.white,
-          size: 60,
-        ),
-        SizedBox(
-          height: 20,
-          width: 20,
-        ),
-      ],
     );
   }
 
@@ -149,31 +90,36 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
         Row(
           children: <Widget>[
             Expanded(
-              child: _entryField(
-                "PRENOM",
-                Icon(Icons.person),
+              child: TextZone(
+                isPassword: false,
+                icon1: const Icon(Icons.person),
+                title: 'PRENOM',
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
-              child: _entryField(
-                "NOM",
-                Icon(Icons.person),
+              child: TextZone(
+                title: "NOM",
+                icon1: const Icon(Icons.person),
+                isPassword: false,
               ),
             ),
           ],
         ),
-        _entryField(
-            "E-MAIL",
-            Icon(
-              Icons.mail,
-            )),
-        _entryField(
-            "MOT DE PASSE",
-            Icon(
-              Icons.lock,
-            ),
-            isPassword: true),
+        TextZone(
+          title: "E-MAIL",
+          icon1: const Icon(
+            Icons.mail,
+          ),
+          isPassword: false,
+        ),
+        TextZone(
+          isPassword: true,
+          title: "MOT DE PASSE",
+          icon1: const Icon(
+            Icons.lock,
+          ),
+        ),
       ],
     );
   }
@@ -187,7 +133,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
         child: Stack(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
                 shrinkWrap: true,
                 children: [
@@ -196,19 +142,26 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       SizedBox(height: height * .2),
-                      _logo(),
-                      SizedBox(
+                      Logo(),
+                      const SizedBox(
                         height: 10,
                       ),
                       _title(),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       _emailPasswordWidget(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      _submitButton(),
+                      Button(
+                          buttonText: 'INSCRIVEZ-VOUS',
+                          onPress: onPress,
+                          clr1: clr1,
+                          clr2: clr2,
+                          clr3: clr3,
+                          h: h,
+                          w: w),
                       SizedBox(height: height * .14),
                       _loginAccountLabel(),
                     ],

@@ -1,6 +1,11 @@
+import 'dart:convert';
+import '../components/button.dart';
+
 import 'package:flutter/material.dart';
-import 'package:marqueblanche/screens/inscription_screen.dart';
+import 'package:marqueblanche/View/inscription_screen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:http/http.dart' as http;
+import '../components/textzone.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -10,46 +15,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  Widget _entryField(String title, Icon icon1, {bool isPassword = false}) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          TextField(
-            obscureText: isPassword,
-            decoration: InputDecoration(
-                prefixIcon: icon1,
-                hintText: title,
-                border: InputBorder.none,
-                fillColor: Color(0xffeeeeee),
-                filled: true),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _submitButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 10),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Color.fromARGB(255, 46, 66, 199),
-                Theme.of(context).primaryColor,
-              ])),
-      child: Text(
-        'SE CONNECTER',
-        style: Theme.of(context).textTheme.headline5,
-      ),
-    );
-  }
+   void login(String email, String pass) async {
+   final response = await http.get("");
+   if (response.statusCode == 200) {
+    var data = jsonDecode(response.body);
+   print(data);
+   }
+   }
 
   Widget _divider() {
     return Container(
@@ -165,14 +137,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        _entryField(
-            "E-MAIL",
-            Icon(
+        TextZone(
+            title: "E-MAIL",
+            icon1: Icon(
               Icons.mail,
-            )),
-        _entryField(
-            "MOT DE PASSE",
-            Icon(
+            ), isPassword:false,),
+        TextZone(
+            title: "MOT DE PASSE",
+            icon1: Icon(
               Icons.lock,
             ),
             isPassword: true),
@@ -218,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 30),
                     _emailPasswordWidget(),
                     SizedBox(height: 20),
-                    _submitButton(),
+                    Button( "Se connecter",login(),clr1: ,clr2: ,clr3: ,w: MediaQuery.of(context).size.width,h: MediaQuery.of(context).size.height,),
                     SizedBox(height: 15),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 10),

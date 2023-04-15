@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:marqueblanche/screens/inscription_screen.dart';
-import 'package:marqueblanche/screens/login_screen.dart';
+import 'package:marqueblanche/View/inscription_screen.dart';
+import 'package:marqueblanche/View/login_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});

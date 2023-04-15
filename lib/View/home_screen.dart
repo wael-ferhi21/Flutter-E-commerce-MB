@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:marqueblanche/View/shop_cart_screen.dart';
+import 'package:marqueblanche/components/bottomnavigationbar.dart';
 import '../components/categories_list.dart';
+import '../components/appbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,62 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
       borderSide: BorderSide.none,
     );
     return Scaffold(
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
-          child: GNav(
-              gap: 10,
-              color: Theme.of(context).primaryColor,
-              activeColor: Theme.of(context).primaryColor,
-              tabBackgroundColor: Colors.grey.shade100,
-              padding: EdgeInsets.all(10),
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: "Acheter",
-                ),
-                GButton(
-                  icon: Icons.favorite_border,
-                  text: "Favoris",
-                ),
-                GButton(
-                  icon: Icons.list,
-                  text: "Categories",
-                ),
-                GButton(
-                  icon: Icons.shopping_cart,
-                  text: "Panier",
-                ),
-              ]),
-        ),
-      ),
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.grey,
-          ),
-          onPressed: () {},
-        ),
-        backgroundColor: Colors.transparent,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Marque Blanche',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                color: Theme.of(context).primaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-              textAlign: TextAlign.center,
-              softWrap: false,
-            )
-          ],
-        ),
+      bottomNavigationBar: BottomNavBar(),
+      appBar: CustomAppBar(
+        text: 'Marque Blanche',
         actions: [
           IconButton(
               onPressed: () {},

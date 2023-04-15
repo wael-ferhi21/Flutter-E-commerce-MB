@@ -39,6 +39,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   line_awesome_flutter: ^2.0.0
   google_nav_bar: ^5.0.6
+  http: ^0.13.5
+  get:
+  flutter_screenutil: ^2.0.0
+  http_interceptor: ^1.0.1
 
 dev_dependencies:
   flutter_test:

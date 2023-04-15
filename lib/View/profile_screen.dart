@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:marqueblanche/screens/profileMenu.dart';
+import 'package:marqueblanche/View/profileMenu.dart';
+import 'package:marqueblanche/components/appbar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -10,24 +11,11 @@ class ProfileScreen extends StatelessWidget {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            LineAwesomeIcons.angle_left,
-          ),
-        ),
-        title: Text(
-          "Profile",
-          style: Theme.of(context).textTheme.headline1,
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
-        ],
-      ),
+      appBar: CustomAppBar(text: "Profile", actions: [
+        IconButton(
+            onPressed: () {},
+            icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
+      ]),
       body: SingleChildScrollView(
           child: Container(
         padding: const EdgeInsets.all(10),
@@ -40,7 +28,6 @@ class ProfileScreen extends StatelessWidget {
                   height: 120,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
-                    
                   ),
                 ),
                 Positioned(
