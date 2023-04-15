@@ -15,13 +15,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-   void login(String email, String pass) async {
-   final response = await http.get("");
-   if (response.statusCode == 200) {
-    var data = jsonDecode(response.body);
-   print(data);
-   }
-   }
+  //void login(String email, String pass) async {
+  //final response = await http.get("");
+  //if (response.statusCode == 200) {
+  //var data = jsonDecode(response.body);
+  // print(data);
+  // }
+  //}
 
   Widget _divider() {
     return Container(
@@ -138,10 +138,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       children: <Widget>[
         TextZone(
-            title: "E-MAIL",
-            icon1: Icon(
-              Icons.mail,
-            ), isPassword:false,),
+          title: "E-MAIL",
+          icon1: Icon(
+            Icons.mail,
+          ),
+          isPassword: false,
+        ),
         TextZone(
             title: "MOT DE PASSE",
             icon1: Icon(
@@ -190,7 +192,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 30),
                     _emailPasswordWidget(),
                     SizedBox(height: 20),
-                    Button( "Se connecter",login(),clr1: ,clr2: ,clr3: ,w: MediaQuery.of(context).size.width,h: MediaQuery.of(context).size.height,),
+                    Button(
+                      buttonText: "Se connecter",
+                      onPress: () {},
+                      clr1: Theme.of(context).primaryColor,
+                      clr2: Theme.of(context).accentColor,
+                      clr3: Theme.of(context).primaryColor,
+                      w: MediaQuery.of(context).size.width,
+                      h: MediaQuery.of(context).size.height,
+                    ),
                     SizedBox(height: 15),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 10),

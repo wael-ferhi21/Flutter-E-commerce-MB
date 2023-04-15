@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xff4d6aee),
         accentColor: const Color(0xfffafafa),
+        
         fontFamily: 'Poppins',
         textTheme: TextTheme(
           headline1: TextStyle(

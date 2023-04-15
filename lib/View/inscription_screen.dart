@@ -7,13 +7,13 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class InscriptionScreen extends StatefulWidget {
-  void inscription(String nom, String prenom, String email, String pass) async {
-    final response = await http.get("");
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
-      print(data);
-    }
-  }
+  //void inscription(String nom, String prenom, String email, String pass) async {
+  //final response = await http.get("");
+  //if (response.statusCode == 200) {
+  //var data = jsonDecode(response.body);
+  //print(data);
+  // }
+  //}
 
   const InscriptionScreen({super.key});
 
@@ -155,13 +155,14 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
                         height: 20,
                       ),
                       Button(
-                          buttonText: 'INSCRIVEZ-VOUS',
-                          onPress: onPress,
-                          clr1: clr1,
-                          clr2: clr2,
-                          clr3: clr3,
-                          h: h,
-                          w: w),
+                        buttonText: 'INSCRIVEZ-VOUS',
+                        onPress: () {},
+                        clr1: Theme.of(context).primaryColor,
+                        clr2: Theme.of(context).accentColor,
+                        clr3: Theme.of(context).primaryColor,
+                        w: MediaQuery.of(context).size.width,
+                        h: MediaQuery.of(context).size.height,
+                      ),
                       SizedBox(height: height * .14),
                       _loginAccountLabel(),
                     ],
