@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
+import '../View/favourite_scrren.dart';
 
 class BottomNavBar extends StatelessWidget {
   @override
@@ -18,10 +21,16 @@ class BottomNavBar extends StatelessWidget {
               GButton(
                 icon: Icons.home,
                 text: "Acheter",
+                onPressed: () {
+                 Get.toNamed('/home', arguments: 'hello');
+                },
               ),
               GButton(
                 icon: Icons.favorite_border,
-                text: "Favoris",
+                text: "Favorites",
+                onPressed: () {
+                  Get.toNamed('/favourites', arguments: 'hello');
+                },
               ),
               GButton(
                 icon: Icons.list,
@@ -31,14 +40,14 @@ class BottomNavBar extends StatelessWidget {
                 icon: Icons.shopping_cart,
                 text: "Panier",
                 onPressed: () {
-                  Navigator.of(context).pushNamed('panier');
+                  Get.toNamed('/panier', arguments: 'hello');
                 },
               ),
               GButton(
                 icon: Icons.person,
                 text: "Profile",
                 onPressed: () {
-                  Navigator.of(context).pushNamed('profile');
+               Get.toNamed('/profile', arguments: 'hello');
                 },
               ),
             ]),

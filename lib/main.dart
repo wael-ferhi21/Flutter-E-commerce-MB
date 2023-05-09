@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:marqueblanche/View/home_screen.dart';
-import 'package:marqueblanche/View/inscription_screen.dart';
-import 'package:marqueblanche/View/profile_screen.dart';
-import 'package:marqueblanche/View/shop_cart_screen.dart';
-import 'package:marqueblanche/View/tab_screen.dart';
-import 'View/login_screen.dart';
+import 'package:marqueblanche/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         primaryColor: const Color(0xff4d6aee),
         accentColor: const Color(0xfffafafa),
@@ -45,15 +42,9 @@ class MyApp extends StatelessWidget {
       ),
       title: 'E commerce',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
-      routes: {
-        'panier': (context) {
-          return ShopCartScreen();
-        },
-        'profile': (context) {
-          return ProfileScreen();
-        }
-      },
+      home: HomeScreen(),
+      initialRoute: '/',
+      getPages: AppRoutes.routes,
     );
   }
 }

@@ -17,24 +17,27 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPress,
-      style: ButtonStyle(
-        alignment: Alignment.center,
-        backgroundColor: MaterialStateProperty.all<Color>(clr1),
-        foregroundColor: MaterialStateProperty.all<Color>(clr2),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            side: BorderSide(color: clr3),
+    return Container(
+      height: 50,
+      child: ElevatedButton(
+        onPressed: onPress,
+        style: ButtonStyle(
+          alignment: Alignment.center,
+          backgroundColor: MaterialStateProperty.all<Color>(clr1),
+          foregroundColor: MaterialStateProperty.all<Color>(clr2),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              side: BorderSide(color: clr3),
+            ),
           ),
+          maximumSize: MaterialStateProperty.all<Size>(Size(h, w)),
+          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(10.0)),
         ),
-        minimumSize: MaterialStateProperty.all<Size>(Size(h, w)),
-        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(10.0)),
-      ),
-      child: Text(
-        buttonText,
-        style: Theme.of(context).textTheme.headline5,
+        child: Text(
+          buttonText,
+          style: Theme.of(context).textTheme.headline5,
+        ),
       ),
     );
   }

@@ -9,6 +9,7 @@ class Produit {
   final Float taux_remise;
   final String proddescrbtion;
   final String alert_stock;
+  final bool isliked;
   const Produit({
     required this.prod_id,
     required this.prod_design,
@@ -18,5 +19,6 @@ class Produit {
     required this.taux_remise,
     required this.proddescrbtion,
     required this.alert_stock,
+    required this.isliked,
   });
 }
